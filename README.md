@@ -1,58 +1,46 @@
-# AstroDesk Report Studio V0.4
+# AstroDesk Report Studio V0.5
 
-V0.4 adds a selectable astrology calculation library and custom PDF builder.
+V0.5 changes the report output to a fixed professional **2-page PDF**.
 
-## Vedic Astrology
-Selectable:
-- Birth Details / Nakshatra
-- Planet Positions
-- Vimshottari Dasha
-- Raja Yoga
-- Mangal Dosha
-- Kaal Sarp Dosha
-- Sade Sati
-- Sarvashtakavarga
-- Panchang
-- Upagraha Positions
-- D1, D3, D4, D7, D9, D10, D12, D16, D20, D24, D27, D30, D40, D45, D60, Bhava and Hora charts
+## Final PDF structure
 
-## KP Astrology
-Selectable:
-- KP Planet + Cusp Positions
-- Planet Significators
-- House Significators
-- KP Chart
-- Vimshottari Dasha
-- KP or KP-New ayanamsa
+### Page 1 — Structured Astrology Summary
+- Logo
+- Brand / astrologer name
+- Short tagline
+- Website, Mobile, WhatsApp, Email
+- Client Name, DOB, Time, Place
+- Quick summary: Lagna, Rashi, Nakshatra, Pada, Gana, **Lagna Sub Lord (1SL)**
+- Four astrologer-selectable blocks in a fixed 2×2 layout
+- Astrologer signature and disclaimer
 
-## Horary / KP Prashna
-- Question
-- Horary Number 1–249 is stored
-- Exact Time of Taking Number
-- Exact Time of Judgment
-- Two separate Ruling Planet sets:
-  1. Lagna Lord
-  2. Lagna Star Lord
-  3. Moon Sign Lord
-  4. Moon Star Lord
-  5. Day Lord
-- Judgment-time KP chart, positions, planet/house significators and Dasha
+The four blocks can use any calculations already generated in the report, including Vedic charts, planet positions, Dasha, KP chart, KP significators, Horary items, etc.
 
-### Horary limitation
-The currently documented Prokerala API exposes KP calculations by datetime/location, but no dedicated operation that converts a 1–249 Horary Number directly into the number-based horary ascendant/cusps. V0.4 therefore stores the number and implements the two-time Ruling Planet + judgment workflow without pretending that the number-based chart engine is available.
+### Page 2 — Personal Prediction
+- Free-form Word/Google Docs style astrologer writing
+- Exactly one prediction page is targeted
+- Long text automatically uses a smaller font
+- The software never generates astrology predictions automatically
 
-## PDF Builder
-After calculations:
-- Check/uncheck sections
-- Drag or use up/down buttons to reorder
-- Add the astrologer's own interpretation
-- Branded Print / Save PDF
+## Systems
+- Vedic Astrology
+- KP Astrology
+- Horary / KP Prashna
 
-## Environment variables on Vercel
+## Branding additions in V0.5
+- Short tagline
+- Separate Mobile and WhatsApp
+- Logo upload
+- Optional signature image
+
+## Lagna Sub Lord
+`Lagna Sub Lord (1SL)` means the **Sub Lord of the 1st cusp / Lagna**. It is read from the KP cusp calculation when KP data is available.
+
+## Vercel environment variables
 - `PROKERALA_CLIENT_ID`
 - `PROKERALA_CLIENT_SECRET`
 
-Never commit the secret.
+Never commit the Client Secret.
 
 ## Prototype login
 - Email: `astro@example.com`
