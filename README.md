@@ -1,33 +1,59 @@
-# AstroDesk Report Studio V0.3
+# AstroDesk Report Studio V0.4
 
-Cloud-ready Vercel prototype for professional astrologers.
+V0.4 adds a selectable astrology calculation library and custom PDF builder.
 
-## Product scope
-- Birth details and Prokerala location autocomplete
-- Real Prokerala horoscope calculations: Birth Details, Planet Position, D1/Rashi, D9/Navamsa, Vimshottari Dasha
-- Free-form Word/Google Docs-style report editor
-- Voice-to-text in supported browsers
-- Translation and language-polish buttons reserved for the next integration step
-- Astrologer branding and browser PDF/print flow
-- No CRM, booking, lead management, or automatic astrology prediction
+## Vedic Astrology
+Selectable:
+- Birth Details / Nakshatra
+- Planet Positions
+- Vimshottari Dasha
+- Raja Yoga
+- Mangal Dosha
+- Kaal Sarp Dosha
+- Sade Sati
+- Sarvashtakavarga
+- Panchang
+- Upagraha Positions
+- D1, D3, D4, D7, D9, D10, D12, D16, D20, D24, D27, D30, D40, D45, D60, Bhava and Hora charts
 
-## Vercel environment variables
-Add these in Vercel Project Settings → Environment Variables:
+## KP Astrology
+Selectable:
+- KP Planet + Cusp Positions
+- Planet Significators
+- House Significators
+- KP Chart
+- Vimshottari Dasha
+- KP or KP-New ayanamsa
 
+## Horary / KP Prashna
+- Question
+- Horary Number 1–249 is stored
+- Exact Time of Taking Number
+- Exact Time of Judgment
+- Two separate Ruling Planet sets:
+  1. Lagna Lord
+  2. Lagna Star Lord
+  3. Moon Sign Lord
+  4. Moon Star Lord
+  5. Day Lord
+- Judgment-time KP chart, positions, planet/house significators and Dasha
+
+### Horary limitation
+The currently documented Prokerala API exposes KP calculations by datetime/location, but no dedicated operation that converts a 1–249 Horary Number directly into the number-based horary ascendant/cusps. V0.4 therefore stores the number and implements the two-time Ruling Planet + judgment workflow without pretending that the number-based chart engine is available.
+
+## PDF Builder
+After calculations:
+- Check/uncheck sections
+- Drag or use up/down buttons to reorder
+- Add the astrologer's own interpretation
+- Branded Print / Save PDF
+
+## Environment variables on Vercel
 - `PROKERALA_CLIENT_ID`
 - `PROKERALA_CLIENT_SECRET`
 
-Never commit the Client Secret to GitHub.
-
-## Prokerala Authorized JavaScript Origin
-After Vercel gives the project a live URL, add its origin in the Prokerala app dashboard, for example:
-
-`https://your-project.vercel.app`
-
-The location widget uses the public Client ID. Horoscope calls use the Client Secret only inside the Vercel serverless function.
+Never commit the secret.
 
 ## Prototype login
 - Email: `astro@example.com`
 - Password: `Astro123!`
-
-Production authentication/database will be added later.

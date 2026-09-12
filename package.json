@@ -1,7 +1,11 @@
 {
   "name": "astrodesk-report-studio",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
-  "engines": { "node": ">=18" },
-  "dependencies": { "luxon": "^3.7.2" }
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "luxon": "^3.7.2"
+  }
 }
